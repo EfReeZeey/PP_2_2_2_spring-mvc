@@ -19,8 +19,8 @@ public class CarController {
     }
 
     @GetMapping()
-    public String cars(@RequestParam(value = "count") int count, Model model) {
-        model.addAttribute("cars", carService.GetSomeCars(count));
+    public String getSomeCars(@RequestParam(value = "count") int count, Model model) {
+        model.addAttribute("cars", carService.getSomeCars(count));
         return "cars";
     }
 }
