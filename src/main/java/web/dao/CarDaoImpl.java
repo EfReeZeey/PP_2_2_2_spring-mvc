@@ -1,27 +1,23 @@
 package web.dao;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import web.model.Car;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 public class CarDaoImpl implements CarDao {
     private List<Car> cars;
     private int CAR_COUNTER;
 
     public CarDaoImpl() {
         this.cars = new ArrayList<>();
-        this.addCar("Ford", "Fiesta");
-        this.addCar("BMW", "E46");
-        this.addCar("Toyota", "Celica");
-        this.addCar("Ford", "Focus");
-        this.addCar("Ford", "Mustang");
-    }
-
-    public void addCar(String manufacturer, String model) {
-        cars.add(new Car(CAR_COUNTER++, manufacturer, model));
+        this.cars.add(new Car(++CAR_COUNTER, "Ford", "Fiesta"));
+        this.cars.add(new Car(++CAR_COUNTER, "BMW", "E46"));
+        this.cars.add(new Car(++CAR_COUNTER, "Toyota", "Celica"));
+        this.cars.add(new Car(++CAR_COUNTER, "Ford", "Focus"));
+        this.cars.add(new Car(++CAR_COUNTER, "Ford", "Mustang"));
     }
 
     public List<Car> getAllCars() {
